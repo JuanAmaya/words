@@ -46,7 +46,6 @@ export default function GameScreen({ mistake, setMistake, setAnswer, setScore, s
 
             <MistakesBar mistake={mistake} />
 
-            <h2>{word}</h2>
             <OldWords ansWord={correctWord} />
 
             <ShowWord guessedWord={guessedWord} setGuessedWord={setGuessedWord} onLetterDeleted={handleDeletedLetter} />
