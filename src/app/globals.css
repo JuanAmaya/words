@@ -2,26 +2,112 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: #151922;
+  color: white;
+}
+
+.playBtn:hover,
+.playBtn:focus {
+  background: #3df7cf;
+  color: #111827;
+}
+
+.playBtn:active {
+  background: #3ad8b6;
+  color: #111827;
+}
+
+.dictBtn:hover,
+.dictBtn:focus {
+  background: #f7ce3d;
+  color: #111827;
+}
+
+.dictBtn:active {
+  background: #e1bc3b;
+  color: #111827;
+}
+
+.menuBtn:hover,
+.menuBtn:focus {
+  background: #a2bdfd;
+  color: #111827;
+}
+
+.menuBtn:active {
+  background: #9cb5ee;
+  color: #111827;
+}
+
+.mistakeMade {
+  color: #b20101;
+}
+
+.word1 {
+  font-size: 1.5rem;
+  color: #282e3c;
+}
+
+.word2 {
+  font-size: 1.25rem;
+  color: #20252f;
+}
+
+.word3 {
+  font-size: 1.125rem;
+  color: #1c222e;
+}
+
+.purpleCard {
+  background: #4f22d0;
+}
+
+.greenCard {
+  background: #22d07b;
+}
+
+.lettersLayout {
+  grid-template-areas:
+    ". a ."
+    "b . c"
+    ". d .";
+}
+
+.letter1 {
+  grid-area: a;
+}
+
+.letter2 {
+  grid-area: b;
+}
+
+.letter3 {
+  grid-area: c;
+}
+
+.letter4 {
+  grid-area: d;
+}
+
+.unavailableWord {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.dottedBar {
+  width: 2rem;
+}
+
+.dottedNormal {
+  background: #282e3c;
+}
+
+.dottedError {
+  background: #b20101;
+}
+
+.optionSelected {
+  background: #22d07b;
+  color: #282e3c;
 }
