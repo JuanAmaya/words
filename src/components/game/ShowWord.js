@@ -12,7 +12,7 @@ export default function ShowWord({ guessedWord, setGuessedWord, onLetterDeleted 
             {
                 guessedWord.map((letter, i) => <div
                     key={i}
-                    className="bg-dsButton p-4 rounded-full relative w-20 h-20 flex justify-center items-center border-2 border-submit"
+                    className="p-4 rounded-full relative w-20 h-20 flex justify-center items-center border-2 border-mainText text-mainText"
                     onClick={() => handleRemove(i)}
                 >
                     <span className="text-4xl uppercase font-bold">
@@ -23,7 +23,7 @@ export default function ShowWord({ guessedWord, setGuessedWord, onLetterDeleted 
             {
                 [...Array(4 - guessedWord.length)].map((e, i) => <div
                     key={i}
-                    className="w-20 h-20 border-white border-8 rounded-full">
+                    className="w-20 h-20 border-white border-4 rounded-full">
                 </div>
                 )
             }

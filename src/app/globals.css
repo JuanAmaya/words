@@ -3,60 +3,53 @@
 @tailwind utilities;
 
 body {
-  background: #151922;
   color: white;
-}
-
-.playBtn:hover,
-.playBtn:focus {
-  background: #3df7cf;
-  color: #111827;
-}
-
-.playBtn:active {
-  background: #3ad8b6;
-  color: #111827;
-}
-
-.dictBtn:hover,
-.dictBtn:focus {
-  background: #f7ce3d;
-  color: #111827;
-}
-
-.dictBtn:active {
-  background: #e1bc3b;
-  color: #111827;
 }
 
 .menuBtn:hover,
 .menuBtn:focus {
-  background: #a2bdfd;
-  color: #111827;
+  background: #c6e89e;
 }
 
 .menuBtn:active {
-  background: #9cb5ee;
-  color: #111827;
+  background: #bad69a;
+}
+
+.dictBtn:hover,
+.dictBtn:focus {
+  background: #ffe067;
+}
+
+.dictBtn:active {
+  background: #e7cb5c;
+}
+
+.failedBtn:hover,
+.failedBtn:focus {
+  background: #9c96e5;
+}
+
+.menu2Btn:active {
+  background: #9690d3;
 }
 
 .mistakeMade {
-  color: #b20101;
+  color: #a3254b;
 }
 
 .word1 {
   font-size: 1.5rem;
-  color: #282e3c;
+  color: #2d2a32;
 }
 
 .word2 {
   font-size: 1.25rem;
-  color: #20252f;
+  color: #403c46;
 }
 
 .word3 {
   font-size: 1.125rem;
-  color: #1c222e;
+  color: rgb(64, 60, 70);
 }
 
 .purpleCard {

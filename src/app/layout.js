@@ -1,5 +1,7 @@
+"use client";
 import './globals.css';
 import { Inter } from 'next/font/google';
+import { usePathname } from 'next/navigation';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -9,9 +11,25 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const pathname = usePathname();
+  console.log(pathname);
+  let pageBg = "bg-lightGren";
+  switch (pathname) {
+    case "/":
+      pageBg = "bg-lightGren";
+      break;
+
+    case "/dictionary":
+      pageBg = "bg-lightYellow";
+      break;
+
+    case "/game":
+      pageBg = "bg-lightPurple";
+      break;
+  }
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} ${pageBg} transition-colors`}>{children}</body>
     </html>
   );
 }

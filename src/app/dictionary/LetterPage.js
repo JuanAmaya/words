@@ -1,13 +1,12 @@
 import ShowWords from "@/components/dictionary/ShowWords";
-import WordButton from "@/components/dictionary/WordButton";
 import ArrowLeft from "../../../public/svg/ArrowLeft";
 
 export default function LetterPage({ selectedLetter, letterWords, setShowLetterPage, setShowDefinition, setWordSelected }) {
     return (
         <>
-            <div>
+            <div className="mx-4 mt-12">
                 <button onClick={() => setShowLetterPage(false)}>
-                    <ArrowLeft />
+                    <ArrowLeft btnName={"dictBtn"} />
                 </button>
             </div>
             <div>

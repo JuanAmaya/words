@@ -23,7 +23,7 @@ export default function TimerBar({ setMistake, score }) {
     return (
         <div className="flex gap-2 h-4 my-8">
             {[...Array(gameTimer)].map((e, i) => (
-                <div className="w-6 h-4 bg-darkBlue-600 rounded-full" key={i} />
+                <div className="w-6 h-4 bg-mainText rounded-full" key={i} />
             ))}
         </div>
     );

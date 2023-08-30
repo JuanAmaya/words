@@ -128,9 +128,9 @@ export default function Alphabet({ wordsArr, setLetterWords, setSelectedLetter, 
                 <button
                     key={i}
                     onClick={() => handleFirstLetter(alp.letter)}
-                    className="bg-dsButton p-8 rounded-lg relative w-full h-20 flex justify-center items-center uppercase font-bold gap-8 transition-colors
-                    hover:bg-dict hover:text-btnText
-                    focus:bg-dict focus:text-btnText
+                    className="border-mainText border-2 text-mainText p-8 rounded-lg relative w-full h-20 flex justify-center items-center uppercase gap-8 transition-colors
+                    hover:bg-dict
+                    focus:bg-dict
                     active:bg-dictActive"
                 >
                     <span className="text-6xl">
@@ -140,7 +140,7 @@ export default function Alphabet({ wordsArr, setLetterWords, setSelectedLetter, 
                         <span>{alp.length}</span>
                         <span className="uppercase">Found</span>
                     </div>
-                    <div className={`w-full h-2 absolute bottom-0 rounded-b-lg ${alp.length > 0 ? "bg-creditGreen" : "bg-mistake"}`} />
+                    <div className={`w-full h-2 absolute bottom-0 rounded-b-lg border-mainText border-t-2 ${alp.length > 0 ? "bg-creditGreen" : "bg-mistake"}`} />
                 </button>
             ))}
         </div>

@@ -34,7 +34,7 @@ export default function SubmitButton({ word, guessedWord, setScore, setMistake, 
     };
 
     return (
-        <button className="bg-dsButton p-4 rounded-full uppercase font-bold text-2xl transition-colors text-center mt-12 mx-auto
+        <button className="border-2 border-mainText p-4 rounded-full uppercase font-bold text-2xl transition-colors text-center mt-12 mx-auto text-mainText
             hover:bg-creditGreen hover:text-dsButton
             focus:bg-creditGreen focus:text-dsButton
             active:bg-creditGreenAct

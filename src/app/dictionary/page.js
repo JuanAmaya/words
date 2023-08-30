@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import DottedBar from "../../../public/svg/DottedBar";
 import Alphabet from "@/components/dictionary/Alphabet";
 import ArrowLeft from "../../../public/svg/ArrowLeft";
 import Link from "next/link";
 import LetterPage from "./LetterPage";
+import Line from "@/components/Line";
 
 export default function Dictionary() {
     const [wordsArr, setWordsArr] = useState([]);
@@ -24,16 +24,16 @@ export default function Dictionary() {
             <main>
                 {!showLetterPage &&
                     <>
-                        <div className="uppercase mt-12 font-bold text-center flex flex-col gap-2 mb-4 relative mx-4">
+                        <div className="uppercase mt-12 text-center flex flex-col gap-2 mb-4 relative mx-4">
                             <Link href={"/"}>
-                                <ArrowLeft />
+                                <ArrowLeft btnName={"dictBtn"} />
                             </Link>
-                            <h2 className="text-3xl text-dict">Dictionary</h2>
-                            <div className="flex flex-col">
+                            <h2 className="text-3xl text-mainText">Dictionary</h2>
+                            <div className="flex flex-col text-mainText">
                                 <span className="text-4xl">{wordsArr.length}</span>
                                 <span className="text-2xl">Words</span>
                             </div>
-                            <DottedBar />
+                            <Line />
                         </div>
                         <Alphabet wordsArr={wordsArr} setLetterWords={setLetterWords} setSelectedLetter={setSelectedLetter} setShowLetterPage={setShowLetterPage} letterWords={letterWords} />
                     </>

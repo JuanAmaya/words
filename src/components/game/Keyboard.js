@@ -32,9 +32,9 @@ export default function Keyboard({ word, onLetterGuessed, guessedWord }) {
             {
                 keyboardLetters.map((letter, i) =>
                     <button
-                        className={`bg-dsButton p-4 rounded-full relative w-20 h-20 flex justify-center items-center letter${i + 1}
-                        hover:bg-submit hover:text-btnText
-                        focus:bg-submit focus:text-btnText
+                        className={`border-2 border-mainText text-mainText p-4 rounded-full relative w-20 h-20 flex justify-center items-center letter${i + 1}
+                        hover:bg-submit 
+                        focus:bg-submit 
                         active:bg-submitAct
                         `}
                         onClick={(e) => handleLetter(e, letter, i)}

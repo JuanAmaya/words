@@ -2,8 +2,8 @@
 import { useEffect, useState } from "react";
 import Mistake from "../../../public/svg/Mistake";
 import NoDefinition from "./NoDefinition";
-import DottedBar from "../../../public/svg/DottedBar";
 import ShowDefinition from "./ShowDefinition";
+import Line from "../Line";
 
 export default function WordDefinition({ word, setShowDefinition }) {
     const [definition, setDefinition] = useState([]);
@@ -37,18 +37,18 @@ export default function WordDefinition({ word, setShowDefinition }) {
                 className="fixed inset-0 bg-black/50 z-10 backdrop-blur-sm"
             >
             </div>
-            <div className="fixed z-20 top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
-                <div className="w-full bg-darkBlue-900 rounded-lg p-8">
+            <div className="fixed z-20 top-0 left-0">
+                <div className="w-screen md:max-w-screen-sm bg-lightYellow rounded-lg p-8 h-screen overflow-y-scroll">
                     <div className="relative py-4">
                         <button
                             onClick={() => setShowDefinition(false)}
-                            className="absolute top-3"
+                            className="absolute top-3 border-2 border-mainText rounded-lg"
                         >
-                            <Mistake menuBtn={true} />
+                            <Mistake dictBtn={true} />
                         </button>
-                        <h2 className="text-4xl uppercase font-bold text-center">{word}</h2>
-                        <DottedBar changeBG={notFound} />
+                        <h2 className="text-4xl uppercase font-bold text-center text-mainText pl-12">{word}</h2>
                     </div>
+                    <Line />
 
                     {notFound &&
                         <NoDefinition definition={definition} />

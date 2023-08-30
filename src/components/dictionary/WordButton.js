@@ -6,9 +6,9 @@ export default function WordButton({ word, setShowDefinition, setWordSelected })
 
     return (
         <button
-            className="bg-darkBlue-600 rounded-lg p-4 transition-colors
-            hover:bg-dict hover:text-btnText
-            focus:bg-dict focus:text-btnText
+            className="border-2 border-mainText text-mainText rounded-lg p-4 transition-colors
+            hover:bg-dict 
+            focus:bg-dict
             active:bg-dictActive"
             onClick={handleWordDefinition}
         >
