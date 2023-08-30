@@ -1,6 +1,4 @@
 export default function ShowWord({ guessedWord, setGuessedWord, onLetterDeleted }) {
-    // El state si cambia pero no se actualiza automaticamente
-
     const handleRemove = (i) => {
         guessedWord.splice(i, 1);
         let croppedWord = guessedWord;

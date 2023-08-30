@@ -14,11 +14,16 @@ export default function Dictionary() {
     const [showLetterPage, setShowLetterPage] = useState(false);
 
     useEffect(() => {
-        const arr = JSON.parse(localStorage.getItem("dictionary"));
-        console.log(arr);
-        setWordsArr(arr);
+        if (localStorage.getItem("dictionary") === null) {
+            localStorage.setItem("dictionary", JSON.stringify(["welcome"]));
+        } else {
+            const arr = JSON.parse(localStorage.getItem("dictionary"));
+            console.log(arr);
+            setWordsArr(arr);
+        }
     }, []);
 
+    // Crash if you dont have any word
     return (
         <div className="max-w-screen-lg mx-auto mb-8">
             <main>
