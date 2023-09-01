@@ -1,6 +1,20 @@
+"use client";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 export default function TimerBar({ setMistake, score }) {
+    const timerAni = {
+        hidden: {
+            opacity: 0,
+        },
+        visible: {
+            opacity: 1,
+            transition: {
+                duration: 1
+            },
+        },
+    };
+
     const [gameTimer, setGameTimer] = useState(10);
 
     useEffect(() => {
@@ -21,10 +35,15 @@ export default function TimerBar({ setMistake, score }) {
     }, [score]);
 
     return (
-        <div className="flex gap-2 h-4 my-8">
+        <motion.div
+            className="flex gap-2 h-4 my-8"
+            variants={timerAni}
+            initial="hidden"
+            animate="visible"
+        >
             {[...Array(gameTimer)].map((e, i) => (
                 <div className="w-6 h-4 bg-mainText rounded-full" key={i} />
             ))}
-        </div>
+        </motion.div>
     );
 }

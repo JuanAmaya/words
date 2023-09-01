@@ -6,6 +6,7 @@ import ArrowLeft from "../../../public/svg/ArrowLeft";
 import Link from "next/link";
 import LetterPage from "./LetterPage";
 import Line from "@/components/Line";
+import WordTyping from "@/components/ui/WordTyping";
 
 export default function Dictionary() {
     const [wordsArr, setWordsArr] = useState([]);
@@ -23,7 +24,6 @@ export default function Dictionary() {
         }
     }, []);
 
-    // Crash if you dont have any word
     return (
         <div className="max-w-screen-lg mx-auto mb-8">
             <main>
@@ -33,10 +33,18 @@ export default function Dictionary() {
                             <Link href={"/"}>
                                 <ArrowLeft btnName={"dictBtn"} />
                             </Link>
-                            <h2 className="text-3xl text-mainText">Dictionary</h2>
+                            <h2 className="text-3xl text-mainText">
+                                <WordTyping activeLine={true}>DICTIONARY</WordTyping>
+                            </h2>
                             <div className="flex flex-col text-mainText">
-                                <span className="text-4xl">{wordsArr.length}</span>
-                                <span className="text-2xl">Words</span>
+                                <span className="text-4xl">
+                                    <WordTyping>
+                                        {wordsArr.length.toString()}
+                                    </WordTyping>
+                                </span>
+                                <span className="text-2xl">
+                                    <WordTyping>WORDS</WordTyping>
+                                </span>
                             </div>
                             <Line />
                         </div>

@@ -1,7 +1,29 @@
 "use client";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 export default function Alphabet({ wordsArr, setLetterWords, setSelectedLetter, setShowLetterPage, letterWords }) {
+    const completeAlphabet = {
+        visible: {
+            transition: {
+                delayChildren: 0.05,
+                staggerChildren: 0.05,
+            },
+        },
+    };
+
+    const alphabetAni = {
+        hidden: {
+            opacity: 0,
+        },
+        visible: {
+            opacity: 1,
+            transition: {
+                duration: 0.5,
+            },
+        },
+    };
+
     const [alphabet, setAlphabet] = useState([
         {
             "letter": "A",
@@ -123,15 +145,21 @@ export default function Alphabet({ wordsArr, setLetterWords, setSelectedLetter, 
     }, [wordsArr]);
 
     return (
-        <div className="grid grid-cols-alphabet gap-4 mx-4 relative">
+        <motion.div
+            className="grid grid-cols-alphabet gap-4 mx-4 relative"
+            variants={completeAlphabet}
+            initial="hidden"
+            animate="visible"
+        >
             {alphabet.length > 0 && alphabet.map((alp, i) => (
-                <button
+                <motion.button
                     key={i}
                     onClick={() => handleFirstLetter(alp.letter)}
                     className="border-mainText border-2 text-mainText p-8 rounded-lg relative w-full h-20 flex justify-center items-center uppercase gap-8 transition-colors
                     hover:bg-dict
                     focus:bg-dict
                     active:bg-dictActive"
+                    variants={alphabetAni}
                 >
                     <span className="text-6xl">
                         {alp.letter}
@@ -141,8 +169,8 @@ export default function Alphabet({ wordsArr, setLetterWords, setSelectedLetter, 
                         <span className="uppercase">Found</span>
                     </div>
                     <div className={`w-full h-2 absolute bottom-0 rounded-b-lg border-mainText border-t-2 ${alp.length > 0 ? "bg-creditGreen" : "bg-mistake"}`} />
-                </button>
+                </motion.button>
             ))}
-        </div>
+        </motion.div>
     );
 }

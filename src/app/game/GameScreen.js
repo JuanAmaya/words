@@ -8,8 +8,21 @@ import SubmitButton from "@/components/game/SubmitButton";
 import { useEffect, useState } from "react";
 import DeleteButton from "@/components/game/DeleteButton";
 import TimerBar from "@/components/game/TimerBar";
+import { motion } from "framer-motion";
 
 export default function GameScreen({ mistake, setMistake, setAnswer, setScore, score, setNewWordsCount }) {
+    const keyboardAni = {
+        hidden: {
+            opacity: 0,
+        },
+        visible: {
+            opacity: 1,
+            transition: {
+                duration: 1
+            },
+        },
+    };
+
     const [word, setWord] = useState('');
     const [guessedWord, setGuessedWord] = useState([]);
     const [correctWord, setCorrectWord] = useState('');
@@ -51,11 +64,16 @@ export default function GameScreen({ mistake, setMistake, setAnswer, setScore, s
             <ShowWord guessedWord={guessedWord} setGuessedWord={setGuessedWord} onLetterDeleted={handleDeletedLetter} />
             <TimerBar setMistake={setMistake} score={score} />
 
-            <div className="relative flex justify-center flex-col">
+            <motion.div
+                className="relative flex justify-center flex-col"
+                variants={keyboardAni}
+                initial="hidden"
+                animate="visible"
+            >
                 <DeleteButton setGuessedWord={setGuessedWord} />
                 <Keyboard word={word} onLetterGuessed={handleGuessedLetter} guessedWord={guessedWord} />
                 <SubmitButton word={word} guessedWord={guessedWord} setScore={setScore} setMistake={setMistake} setAnswer={setAnswer} setNewWordsCount={setNewWordsCount} />
-            </div>
+            </motion.div>
         </div>
     );
 }

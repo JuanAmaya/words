@@ -1,10 +1,13 @@
 import Button from "@/components/Button";
+import WordTyping from "@/components/ui/WordTyping";
 
 export default function Home() {
   return (
     <main className="">
       <div className="py-4 mb-8">
-        <h1 className="text-center text-4xl text-mainText">WORD_</h1>
+        <h1 className="text-4xl text-mainText">
+          <WordTyping activeLine={true}>WORD</WordTyping>
+        </h1>
       </div>
 
       <div className="flex justify-center flex-col w-max mx-auto gap-4">

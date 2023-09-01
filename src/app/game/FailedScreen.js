@@ -1,38 +1,74 @@
 import Line from "@/components/Line";
 import Button from "@/components/Button";
+import PlayAgainButton from "@/components/ui/PlayAgainButton";
+import ShowWordCount from "@/components/ui/ShowWordCount";
+import WordTyping from "@/components/ui/WordTyping";
 
 export default function FailedScreen({ answer, score, setPlayAgain, newWordsCount }) {
     return (
         <div className="mx-8 flex flex-col items-center">
             <div className="text-center my-12">
-                <span className="text-mistake text-7xl">FAILED</span>
-                <div className="mt-4 flex flex-col">
-                    <span className="text-mainText text-2xl">1. The <span className="text-markWord">Word</span> was <span className="text-creditGreen">{answer}</span></span>
-                    <span className="text-mainText text-2xl">2. Your <span className="text-markWord">Final Score</span> was <span className="text-creditGreen">{score}</span></span>
+                <h2 className="text-mistake text-7xl">
+                    <WordTyping activeLine={true}>
+                        FAILED
+                    </WordTyping>
+                </h2>
+                <div className="mt-4 flex flex-col gap-2">
+                    <span className="text-mainText text-2xl flex">
+                        <WordTyping>
+                            1. The &nbsp;
+                        </WordTyping>
+                        <span className="bg-markWord">
+                            <WordTyping>
+                                Word
+                            </WordTyping>
+                        </span>
+                        <WordTyping>
+                            &nbsp; was &nbsp;
+                        </WordTyping>
+                        <span className="bg-creditGreen">
+                            <WordTyping>
+                                {answer}
+                            </WordTyping>
+                        </span>
+                    </span>
+                    <span className="text-mainText text-2xl flex">
+                        <WordTyping>
+                            2. Your &nbsp;
+                        </WordTyping>
+                        <span className="bg-markWord">
+                            <WordTyping>
+                                Final Score
+                            </WordTyping>
+                        </span>
+                        <WordTyping>
+                            &nbsp; was &nbsp;
+                        </WordTyping>
+                        <span className="bg-creditGreen">
+                            <WordTyping>
+                                {score.toString()}
+                            </WordTyping>
+                        </span>
+                    </span>
                 </div>
             </div>
 
             <Line />
 
             <div className="flex flex-col gap-8 mt-8">
-                <button
-                    className={`border-2 border-mainText px-12 py-2 rounded-full uppercase text-mainText text-2xl transition-colors text-center
-                    hover:bg-btnPurpleHov focus:bg-btnPurpleHov
-                    active:bg-btnPurpleAct`}
-                    onClick={() => setPlayAgain(true)}
-                >
-                    Play Again
-                </button>
+                <PlayAgainButton setPlayAgain={setPlayAgain}>
+                    Play&nbsp;Again
+                </PlayAgainButton>
                 <div className="relative">
                     {newWordsCount > 0 &&
-                        <div className="absolute z-10 bg-creditGreen px-3 rounded-full -top-6 -right-4">
-                            <span className="text-md font-bold text-mainText">+ {newWordsCount}</span>
-                        </div>
+                        <ShowWordCount newWordsCount={newWordsCount} />
                     }
-                    <Button btnName={"failedBtn"} title={"Dictionary"} pageUrl={"/dictionary"} notification={newWordsCount} />
+                    <div className="flex">
+                        <Button btnName={"failedBtn"} title={"Dictionary"} pageUrl={"/dictionary"} notification={newWordsCount} />
+                    </div>
                 </div>
                 <Button btnName={"failedBtn"} title={"Menu"} pageUrl={"/"} />
             </div>
         </div>
     );
-}
+};

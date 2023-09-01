@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import WordTyping from "../ui/WordTyping";
 
 export default function OldWords({ ansWord }) {
     const [listWords, setListWords] = useState([]);
@@ -22,7 +23,9 @@ export default function OldWords({ ansWord }) {
             {
                 listWords.map((word, i) => (
                     <span className={`word${i + 1}`} key={i}>
-                        {word}
+                        <WordTyping>
+                            {word}
+                        </WordTyping>
                     </span>
                 ))
             }
