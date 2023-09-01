@@ -76,7 +76,7 @@ export default function ShowDefinition({ definition }) {
                                 </Paragraph>
 
                                 {definition.meanings[selectedDef].synonyms.map((synonysm, i) => (
-                                    <div className="flex justify-start">
+                                    <div key={i}>
                                         <Paragraph desc={synonysm} key={i} />
                                     </div>
                                 ))}
@@ -89,7 +89,7 @@ export default function ShowDefinition({ definition }) {
                                     Antonysm
                                 </Paragraph>
                                 {definition.meanings[selectedDef].antonyms.map((synonysm, i) => (
-                                    <div className="">
+                                    <div key={i}>
                                         <Paragraph desc={synonysm} key={i} />
                                     </div>
                                 ))}

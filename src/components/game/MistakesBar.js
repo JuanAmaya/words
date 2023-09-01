@@ -34,6 +34,7 @@ export default function MistakesBar({ mistake }) {
             {
                 [...Array(mistake)].map((e, i) =>
                     <motion.div
+                        key={i}
                         variants={mistakesAni}
                     >
                         <Mistake key={i} pathColor={"mistakeMade"} />
@@ -43,6 +44,7 @@ export default function MistakesBar({ mistake }) {
             {
                 [...Array(3 - mistake)].map((e, i) =>
                     <motion.div
+                        key={i}
                         variants={mistakesAni}
                     >
                         <Mistake key={i} />
